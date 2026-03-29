@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Github Issue Tracker</title>
+        <!-- Linked DaisyUI and tailwindcss -->
+        <link
+        href="https://cdn.jsdelivr.net/npm/daisyui@5"
+        rel="stylesheet"
+        type="text/css"
+        />
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <!-- Font awesome Linked -->
+        <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+        />
+
+        <!-- Linked font here -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@400..800&family=Baloo+Da+2:wght@400..800&family=Luckiest+Guy&family=Manrope:wght@200..800&family=Momo+Trust+Display&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body class="bg-gray-200 flex items-center justify-center h-screen">
+        <div class="bg-white w-[380px] p-6 rounded-xl shadow-md">
+        <!-- Logo -->
+        <div class="flex justify-center mb-4">
+            <div class="bg-white p-4 rounded-full">
+            <!-- GitHub Icon (SVG) -->
+            <img src="./assets/github-logo.png" alt="" class="w-10 h-10" />
+            </div>
+        </div>
+        <h2 class="text-center text-xl font-semibold text-gray-800">
+            GitHub Issues Tracker
+        </h2>
+        <p class="text-center text-sm text-gray-500 mb-5">
+            Sign in to manage your issues
+        </p>
+
+        <!-- Username -->
+        <label class="text-sm text-gray-700">Username</label>
+        <input
+            type="text"
+            id="username"
+            placeholder="Enter Username"
+            class="w-full mt-1 mb-2 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+        />
+        <p class="text-xs text-blue-500 mb-3">Default: admin</p>
+
+        <!-- Password -->
+        <label class="text-sm text-gray-700">Password</label>
+        <input
+            type="password"
+            id="password"
+            placeholder="Enter Password"
+            class="w-full mt-1 mb-2 p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+        />
+        <p class="text-xs text-blue-500 mb-4">Default: admin123</p>
+
+        <!-- Button -->
+        <button
+            id="loginBtn"
+            class="w-full py-2 rounded-md text-white font-medium bg-gradient-to-r from-purple-600 to-indigo-600 hover:opacity-90 transition"
+        >
+            Sign In
+        </button>
+
+        <!-- OR Divider -->
+        <div class="flex items-center my-4">
+            <hr class="flex-grow border-gray-300" />
+            <span class="mx-2 text-sm text-gray-400">OR</span>
+            <hr class="flex-grow border-gray-300" />
+        </div>
+
+        <!-- Demo Box -->
+        <div class="bg-gray-100 p-3 rounded-md text-sm text-gray-700 text-center">
+            <p class="text-gray-500 mb-1">Demo Credentials:</p>
+            <p><strong>Username:</strong> admin</p>
+            <p><strong>Password:</strong> admin123</p>
+        </div>
+
+        <!-- Error -->
+        <p id="errorMsg" class="text-red-500 text-sm mt-3 hidden text-center">
+            Invalid credentials
+        </p>
+        </div>
+        <script>
+const loginBtn = document.getElementById("loginBtn");
+
+    loginBtn.addEventListener("click", function () {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+    const errorMsg = document.getElementById("errorMsg");
+
+    // Dummy credentials (for testing)
+    const correctUsername = "admin";
+    const correctPassword = "admin123";
+
+    if (username === correctUsername && password === correctPassword) {
+        // Save login state (optional but important)
+        localStorage.setItem("isLoggedIn", "true");
+
+        // Redirect to another page
+        window.location.href = "dashboard.html";
+    } else {
+        errorMsg.classList.remove("hidden");
+    }
+    });
+        </script>
+    </body>
+</html>
